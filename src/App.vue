@@ -1,31 +1,74 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
+  <div class="container">
+    <!-- <div class="box">
+      <header class="header">header</header>
+      <div class="content">content</div>
+    </div> -->
+    <router-view></router-view>
+    <router-view name="foot"></router-view>
   </div>
 </template>
 
 <style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
-
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
+html,body,.container {
+  width: 100%;
+  height: 100%;
+}
+html{ font-size: 26.66666666666666vw;}
+@media all and (orientation : landscape) {
+  html {
+    font-size: 100px;
+  }
+}
+body {
+  font-size: 12px;
+}
+.container {
+  max-width: 640px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  background-color: #efefef;
+  .box {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+    .header {
+      height: .44rem;
+      background-color: #f66;
+    }
+    .content {
+      flex: 1;
+      overflow: auto;
+    }
+  }
+  .footer {
+    height:.5rem;
+    background-color: #efefef;
+    ul{
+      width: 100%;
+      height: 100%;
+      display: flex;
+      li{
+        display: flex;
+        height: 100%;
+        flex: 1;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        &.router-link-exact-active.router-link-active{
+          color:red
+        }
+      }
+      span{
+        font-size: 22px;
+      }
     }
   }
 }
